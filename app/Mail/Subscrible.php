@@ -16,9 +16,10 @@ class Subscrible extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $request;
+    public function __construct($request)
     {
-        //
+        $this->request=$request;
     }
 
     /**
@@ -28,6 +29,8 @@ class Subscrible extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.subscribe');
+        return $this->markdown('emails.subscribe', [
+            'requests' => $this->request,
+        ]);
     }
 }

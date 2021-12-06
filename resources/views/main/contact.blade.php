@@ -18,27 +18,27 @@
                 <div class="main_title a_left">
                     <h2>CONTACT US</h2>
                 </div>
-                <form id="contact-form-page">
+                <form id="contact-main" class="contact-form-page">
                     <div class="row">
                         <div class="form-group col-md-6 col-sm-6">
                             <label class="control-label">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Your Name">
+                            <input required type="text" class="form-control" name="name" placeholder="Your Name">
                         </div>
                         <div class="form-group col-md-6 col-sm-6">
                             <label class="control-label">Phone</label>
-                            <input type="text" class="form-control" name="phone" placeholder="Phone">
+                            <input required type="text" class="form-control" name="phone" placeholder="Phone">
                         </div>
                         <div class="form-group col-md-6 col-sm-6">
                             <label class="control-label">Email</label>
-                            <input type="email" class="form-control" name="email" placeholder="Your Email">
+                            <input required type="email" class="form-control" name="email" placeholder="Your Email">
                         </div>
                         <div class="form-group col-md-6 col-sm-6">
                             <label class="control-label">Subject</label>
-                            <input type="text" class="form-control" name="subject" placeholder="Subject">
+                            <input required type="text" class="form-control" name="subject" placeholder="Subject">
                         </div>
                         <div class="form-group col-md-12">
                             <label class="control-label">Message</label>
-                            <textarea class="form-control" name="message" placeholder="Your Message..."></textarea>
+                            <textarea required class="form-control" name="message" placeholder="Your Message..."></textarea>
                         </div>
                         <div class="form-group col-md-12">
                             <button type="submit" class="button  btn_blue mt40 upper pull-right">

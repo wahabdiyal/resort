@@ -4306,22 +4306,22 @@ footer.dark .subfooter .social_media a {
     background-color: rgb(247, 247, 247);
 }
 
-#contact-form-page {
+.contact-form-page {
     margin-top: 30px;
 }
 
-#contact-form-page .form-control {
+.contact-form-page .form-control {
     height: 52px;
     border-radius: 1px;
     border: 1px solid #dfdfdf;
     background-color: #fcfcfc;
 }
 
-#contact-form-page .form-group {
+.contact-form-page .form-group {
     padding-bottom: 30px;
 }
 
-#contact-form-page .form-group textarea {
+.contact-form-page .form-group textarea {
     height: 135px;
 }
 

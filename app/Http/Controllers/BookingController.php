@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AdminBooking;
 use App\Mail\Booking;
+use App\Mail\Contact;
 use App\Mail\Subscrible;
 
 class BookingController extends Controller
@@ -164,9 +165,22 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function contactMain(Request $request)
     {
-        //
+        $value = $request->validate([
+
+            'user_name'=>'required',
+                        'user_email'=>'required',
+                        'user_message'=>'required',
+                        'user_phone'=>'required',
+                        'user_subject'=>'required',
+        ]);
+
+
+         Mail::to(env('AdminMail'))->queue(new Contact($request->all()));
+
+        die(json_encode(array('type'=>'message', 'text' => 'Your message has been sent successfully. Thank you.')));
+
     }
 
     /**

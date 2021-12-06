@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('booking',[BookingController::class,'store']);
 Route::post('subcribe', [BookingController::class,'subcribe']);
+Route::post('contact', [BookingController::class,'contactMain']);

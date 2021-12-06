@@ -31,7 +31,7 @@ class AdminBooking extends Mailable
     public function build()
     {
         return $this->markdown('emails.adminmail', [
-            'request' => $this->request,
+            'requests' => $this->request,
         ]);
     }
 }

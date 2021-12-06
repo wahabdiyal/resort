@@ -751,7 +751,7 @@
             var booking_country = $("select[name=booking-country]").val();
             var booking_comments = $("textarea[name=booking-comments]").val();
 
-            //Data to be sent to server
+            // Data to be sent to server
             var post_data;
             var output;
             post_data = {
@@ -794,6 +794,54 @@
             }, 'json');
 
         });
+
+                /*========== CONTACT FORM ==========*/
+                $("#contact-main").on('submit', function (e) {
+                    e.preventDefault();
+
+                    //Get input field values from HTML form
+                    var user_name = $("input[name=name]").val();
+                    var user_phone = $("input[name=phone]").val();
+                    var user_email = $("input[name=email]").val();
+                    var user_subject = $("input[name=subject]").val();
+                    var user_message = $("textarea[name=message]").val();
+
+                    //Data to be sent to server
+                    var post_data;
+                    var output;
+                    post_data = {
+                        'user_name': user_name,
+                        'user_email': user_email,
+                        'user_message': user_message,
+                        'user_phone': user_phone,
+                        'user_subject': user_subject
+                    };
+
+                    //Ajax post data to server
+                    $.post('api/contact', post_data, function (response) {
+
+                        //Response server message
+                        if (response.type == 'error') {
+                            output = '<div class="notification error"><span class="notification-icon"><i class="fa fa-exclamation" aria-hidden="true"></i></span><span class="notification-text">' + response.text + '</span></div>';
+                        } else {
+                            output = '<div class="notification success"><span class="notification-icon"><i class="fa fa-check" aria-hidden="true"></i></span><span class="notification-text">' + response.text + '</span></div>';
+
+                            //If success clear inputs
+                            $("input, textarea").val('');
+                        }
+
+                        $("#notification").html(output);
+
+                        $(".notification").delay(15000).queue(function (next) {
+                            $(this).addClass("scale-out");
+                            next();
+                        });
+                        $(".notification").on("click", function(){
+                            $(this).addClass("scale-out");
+                        });
+
+                    }, 'json');
+                });
 
         /*========== CONTACT FORM ==========*/
         $("#contact-form, #contact-form-page").on('submit', function (e) {

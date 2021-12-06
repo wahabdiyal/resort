@@ -31,7 +31,7 @@ class Booking extends Mailable
     public function build()
     {
         return $this->markdown('emails.booking', [
-            'request' => $this->request,
+            'requests' => $this->request,
         ]);
     }
 }
